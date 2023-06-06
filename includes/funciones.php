@@ -6,6 +6,8 @@ function incluirTemplate(string $nombre, bool $inicio = false) {
   include TEMPLATES_URL . "/{$nombre}.php";
 }
 
-function hola() {
-  echo 'Hola funciones';
+function mostrarVar($var) {
+  echo "<pre>";
+  var_dump($var);
+  echo "</pre>";
 }

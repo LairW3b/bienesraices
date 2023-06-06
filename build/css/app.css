@@ -66,7 +66,8 @@ a {
 abbr[title] {
   border-bottom: none; /* 1 */
   text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted; /* 2 */
 }
 
 /**
@@ -375,6 +376,10 @@ h4 {
   justify-content: flex-end;
 }
 
+.w-100 {
+  width: 100%;
+}
+
 .boton-amarillo {
   background-color: #E08709;
   color: #FFFFFF;
@@ -419,6 +424,39 @@ h4 {
   border: none;
 }
 .boton-verde:hover {
+  background-color: #619800;
+  cursor: pointer;
+}
+
+.boton-rojo-block {
+  background-color: rgb(189, 7, 7);
+  color: #FFFFFF;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 1rem 3rem;
+  text-align: center;
+  margin-top: 2.5rem;
+  display: block;
+  border: none;
+  width: 100%;
+}
+.boton-rojo-block:hover {
+  background-color: #a40606;
+  cursor: pointer;
+}
+
+.boton-verde-block {
+  background-color: #71B100;
+  color: #FFFFFF;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 1rem 3rem;
+  text-align: center;
+  margin-top: 2.5rem;
+  display: block;
+  border: none;
+}
+.boton-verde-block:hover {
   background-color: #619800;
   cursor: pointer;
 }
@@ -689,7 +727,8 @@ h4 {
   .seccion-inferior {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    column-gap: 2rem;
+    -moz-column-gap: 2rem;
+         column-gap: 2rem;
   }
 }
 .entrada-blog {
@@ -699,7 +738,8 @@ h4 {
   .entrada-blog {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    column-gap: 2rem;
+    -moz-column-gap: 2rem;
+         column-gap: 2rem;
   }
 }
 .entrada-blog:last-of-type {
@@ -812,4 +852,37 @@ h4 {
   padding-left: 1rem 0 3rem 0;
 }
 
+.alerta {
+  padding: 0.5rem;
+  text-align: center;
+  font-weight: bold;
+  color: #FFFFFF;
+  margin-top: 1rem;
+}
+.alerta.error {
+  background-color: rgb(189, 7, 7);
+}
+.alerta.exito {
+  background-color: #71B100;
+}
+
+table.propiedades {
+  margin-top: 4rem;
+  width: 100%;
+  border-spacing: 0;
+}
+table.propiedades thead {
+  background-color: #71B100;
+}
+table.propiedades thead th {
+  color: #FFFFFF;
+  padding: 2rem;
+}
+table.propiedades .imagen-tabla {
+  width: 10rem;
+}
+
+.imagen-small {
+  width: 20rem;
+}
 /*# sourceMappingURL=app.css.map */

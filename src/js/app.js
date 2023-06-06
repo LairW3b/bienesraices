@@ -1,13 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
   eventListeners()
-  darkMode()
+  //darkMode()
 })
 
 function darkMode() {
 
   const prefiereDarkMode = window.matchMedia('(prefers-color-scheme: dark)')
 
-  // console.log(prefiereDarkMode.matches) devuelve true o false
+   console.log(prefiereDarkMode.matches) //devuelve true o false
   if(prefiereDarkMode.matches) {
     document.body.classList.add('dark-mode')
   }else {
