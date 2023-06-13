@@ -43,7 +43,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
   // echo "</pre>";
 
   //mysqli_real_escape_string: esta función nos protege de un ataque de inyección sql 
-  //guardando los datos de forma no ejecutabel, su  primer parametro es la BD y el segundo
+  //guardando los datos de forma no ejecutable, su  primer parametro es la BD y el segundo
   //lo que vamos a validar;
   $titulo = mysqli_real_escape_string($db, $_POST['titulo']);
   $precio = mysqli_real_escape_string($db, $_POST['precio']);

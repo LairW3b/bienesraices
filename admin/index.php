@@ -63,8 +63,10 @@ incluirTemplate('header');
     <p class="alerta exito">Anuncico Eliminado Correctamente</p>
   <?php endif; ?>
 
-  <a href="/admin/propiedades/crear.php" class="boton boton-verde">Nueva Propiedad</a>
-
+  <div class="">
+    <a href="/admin/propiedades/crear.php" class="boton boton-verde">Nueva Propiedad</a>
+    <a href="/admin/usuarios/usuarios.php" class="boton boton-verde">Administrar Usuarios</a>
+  </div>
   <table class="propiedades">
     <thead>
       <tr>
@@ -83,7 +85,7 @@ incluirTemplate('header');
       <td><?php echo $propiedad['titulo'] ?></td>
         <td>
           <img 
-          src="/imagenes/<?php echo $propiedad['imagen'] ?>" 
+            src="/imagenes/<?php echo $propiedad['imagen'] ?>" 
             alt="imagen casa" 
             class="imagen-tabla"
           >

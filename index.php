@@ -5,6 +5,7 @@
 
   <main class="contenedor seccion">
     <h1> Más Sobre Nosotros</h1> 
+    <h2>Crear registrar usuario</h2>
 
     <div class="iconos-nosotros">
       <div class="icono">
