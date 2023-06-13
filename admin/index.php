@@ -1,4 +1,9 @@
 <?php
+require '../includes/funciones.php';
+$auth = estaAutenticado();
+if(!$auth) {
+  header('Location: /');
+}
 
 //Importar la conexión
 require '../includes/config/database.php';
@@ -10,7 +15,6 @@ $query = "SELECT * FROM propiedades";
 //Consultar la DB
 $resultadoConsulta = mysqli_query($db, $query);
 
-require '../includes/funciones.php';
 
 $resultado = $_GET['resultado'] ?? null; // ?? -> agrego un valor por default
 //lo mismo que hacia isset
@@ -24,6 +28,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
   if($id) {
 
     //Eliminar el archivo
+    $query = "SELECT imagen FROM propiedades WHERE id = {$id}";
+
+    $resultado = mysqli_query($db, $query);
+    $propiedad = mysqli_fetch_assoc($resultado);
+
+    unlink('../imagenes/' . $propiedad['imagen']);
+
 
     //Eliminar la propiedad
     $query = "DELETE FROM propiedades WHERE id = {$id}";
@@ -34,7 +45,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
   }
 
-  
+
 }
 
 
@@ -96,6 +107,6 @@ incluirTemplate('header');
   </table>
 </main>
 <?php
-  mysqli_close($db);
-  incluirTemplate('footer');
+mysqli_close($db);
+incluirTemplate('footer');
 ?>

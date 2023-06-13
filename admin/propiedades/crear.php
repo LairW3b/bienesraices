@@ -1,12 +1,13 @@
 <?php
+require '../../includes/funciones.php';
+$auth = estaAutenticado();
+if(!$auth) {
+  header('Location: /');
+}
 // Base de datos 
 // $_GET y $_POST son super globales con las cuales puedo acceder a los valores que se envian
 require '../../includes/config/database.php';
 $db = conectarDB();
-
-// echo "<pre>";
-// var_dump($_SERVER['REQUEST_METHOD']); //Trae la infon del server
-// echo "</pre>";
 
 
 // Consulta para obtener vendeores
@@ -15,13 +16,13 @@ $consulta = "SELECT * FROM vendedores";
 $resultado = mysqli_query($db, $consulta);
 
 
-$titulo = '';
-$precio = '';
-$descripcion = '';
-$habitaciones = '';
-$wc = '';
-$estacionamineto = '';
-$vendedor_id = '';
+$titulo = 'titulo';
+$precio = 'precio';
+$descripcion = 'descripcion';
+$habitaciones = 'habitaciones';
+$wc = 'wc';
+$estacionamineto = 'estacionamiento';
+$vendedor_id = 'vendedor';
 
 // Arreglo con mensajes de error
 $errores = [];
@@ -137,7 +138,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 }
 
-require '../../includes/funciones.php';
 incluirTemplate('header');
 ?>
 
@@ -161,20 +161,38 @@ incluirTemplate('header');
       <legend>Información General</legend>
 
       <label for="titulo">Titulo:</label>
-      <input type="text" id="titulo" name="titulo" placeholder="Titulo Propiedad" value="<?php $titulo ?>">
+      <input 
+        type="text" 
+        id="titulo" 
+        name="titulo" 
+        placeholder="Titulo Propiedad" 
+        value="<?php echo $titulo ?>"
+      >
 
       <label for="precio">Precio:</label>
-      <input type="number" id="precio" name="precio" placeholder="Precio Propiedad"value="<?php $precio ?>">
+      <input 
+        type="number" 
+        id="precio" 
+        name="precio" 
+        placeholder="Precio Propiedad"
+        value="<?php echo $precio ?>"
+      >
 
       <label for="imagen">Imagen:</label>
-      <input type="file" id="imagen" accept="image/jpeg, image/png" name="imagen">
+      <input 
+        type="file" 
+        id="imagen" 
+        accept="image/jpeg, image/png" 
+        name="imagen"
+        value="<?php echo $imagen ?>"
+      >
 
       <label for="descripcion">Descripción</label>
       <textarea 
         name="descripcion" 
         id="descripcion"
       >
-      <?php $descripcion  ?>
+      <?php echo $descripcion  ?>
       </textarea>
 
     </fieldset>
@@ -189,7 +207,8 @@ incluirTemplate('header');
         name="habitaciones"
         placeholder="Ej: 3"
         min="1"
-        max="9"value="<?php $habitaciones ?>"
+        max="9"
+        value="<?php echo $habitaciones ?>"
       >
 
       <label for="wc">Baños:</label>
@@ -200,7 +219,7 @@ incluirTemplate('header');
         placeholder="Ej: 3"
         min="1"
         max="9"
-        value="<?php $wc ?>"
+        value="<?php echo $wc ?>"
       >
 
       <label for="estacionamiento">Estacionamiento:</label>
@@ -211,7 +230,7 @@ incluirTemplate('header');
         placeholder="Ej: 3"
         min="1"
         max="9"
-        value="<?php $estacionamineto ?>"
+        value="<?php echo $estacionamineto ?>"
       >
     </fieldset>
 

@@ -369,6 +369,7 @@ h4 {
 
 .contenido-centrado {
   max-width: 80rem;
+  margin: auto;
 }
 
 .alinear-derecha {

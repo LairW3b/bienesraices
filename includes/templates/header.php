@@ -1,3 +1,12 @@
+<?php
+session_start();
+if(!isset($_SESSION)) {
+  session_start();
+}
+
+//Compruebo que el usuario esta autenticado
+$auth = $_SESSION['login'] ?? false;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,14 +36,15 @@
             <a href="anuncios.php">Anuncios</a>
             <a href="blog.php">Blog</a>
             <a href="contacto.php">Contacto</a>
-            <a href="nosotros.php">Login</a>
+            <a href="login.php">Login</a>
+            <?php if($auth): ?>
+              <a href="/cerrar-sesion.php">Cerrar Sesión</a>
+            <?php endif ?>
           </nav>
         </div>
       </div> <!-- Fin barra -->
 
-      <?php if($inicio) { ?>
-        <h1>Venta de Casas y Departamentos Exclusivos de Lujo</h1>
-      <?php }?>
+      <?php echo $inicio ? "<h1>Venta de Casas y Departamentos Exclusivos de Lujo</h1>" : ''; ?>
 
     </div>
   </header>
